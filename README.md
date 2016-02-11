@@ -17,11 +17,11 @@ This package supports the IdentityServer functionality. For administrative funct
             var userService = new Registration<IUserService>(/*...*/);
 
             // Create and modify default settings
-            var settings = IdentityServerMongoDb.StoreSettings.DefaultSettings();
+            var settings = IdentityServer.Core.MongoDb.StoreSettings.DefaultSettings();
             settings.ConnectionString = "mongodb://localhost";
 
             // Create the MongoDB factory
-            var factory = new IdentityServerMongoDb.ServiceFactory(userService, settings);
+            var factory = new IdentityServer.Core.MongoDb.ServiceFactory(userService, settings);
 
             // Overwrite services, e.g. with in memory stores
             factory.Register(new Registration<IEnumerable<Client>>(MyClients.Get()));
